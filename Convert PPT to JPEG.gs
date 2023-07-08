@@ -5,6 +5,8 @@ function convertJpeg(folderId, id, name) {
   // const folderId = "1-_I0VOzTcrZy-SVAXSU1E9FqpY"; // Please set the folder ID you want to put the exported PDF files.
   // name is the variable which you want to replace in the ppt.
 
+  // Note: You have to enable the slides api from the services menu
+
 
   var page = SlidesApp.openById(id).getSlides()[0].getObjectId();
   // 2. Export each page as a JPEG file.
