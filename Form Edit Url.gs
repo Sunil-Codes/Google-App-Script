@@ -1,11 +1,15 @@
 function FormEditUrl(){
 
+//instruction: add your sheet name of form responses.
+// create an extra column header named 'Form edit Url'
+//
+
 var mySheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("your sheet name");
 var headers = mySheet.getRange(1, 1, 1, mySheet.getLastColumn()).getValues();
 var Furl = headers[0].indexOf('Form edit Url');
 var myContacts = mySheet.getDataRange();
 var data = myContacts.getValues();
-var lrow = template.getRange("range").getValue();
+var lrow = mySheet.getLastRow();
 var formUrl = SpreadsheetApp.getActiveSpreadsheet().getFormUrl();
 var formID = SpreadsheetApp.getActiveSpreadsheet().getFormUrl().match(/\/d\/(.{25,})\//)[1];
 if (formID == '') { Browser.msgBox('No Form Found in this Sheet!'); return }
