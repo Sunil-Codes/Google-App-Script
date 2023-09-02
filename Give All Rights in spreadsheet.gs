@@ -1,5 +1,5 @@
 function giveAllRights() {
-  var editors = ['mis@solarsales.in','pc@solarsales.in','dme@solarsales.in']
+  var editors = ['one@gmail.com','two@gmail.com','three@gmail.com']
 
   var ss = SpreadsheetApp.getActiveSpreadsheet()
 
