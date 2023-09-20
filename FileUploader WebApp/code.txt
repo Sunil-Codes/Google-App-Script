@@ -1,0 +1,18 @@
+function doGet(e) {
+
+  var htmlOutput = HtmlService.createTemplateFromFile('index')
+  return htmlOutput.evaluate()
+  
+  
+}
+function processForm(formData) {
+  var part1 = formData.split(',')[1]
+  var data = Utilities.base64Decode(part1)
+  var mimeType = formData.split(',')[0].split(':')[1].split(';')[0]
+  var blob = Utilities.newBlob(data, mimeType, 'new file')
+  var folderId = '1o4cnO24BcPKjgT5Y0BkN2OTUzG1m29lk'; // Replace with your folder ID
+  var folder = DriveApp.getFolderById(folderId);
+  var dfile = folder.createFile(blob);
+  var link = dfile.getUrl();
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet1').appendRow([link])
+}

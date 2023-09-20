@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+</head>
+
+<body>
+
+  <h1>File Uploader</h1>
+  <input type="file" id="file" name="file" class="form-control"  ><br><br>
+
+  <input class="btn btn-primary" id="myForm" type="submit" name="submitButton" value="Submit" style="font-size: 20px"/><br>
+
+</body>
+<script>
+  document.getElementById('myForm').addEventListener('click', function (e) {
+ e.preventDefault();
+  var script_url = 'url'
+var file = document.getElementById('file').files[0];
+  if(file){
+
+    var reader = new FileReader();
+    reader.onload = function (event){
+    var fileContent = event.target.result;
+
+google.script.run.processForm(fileContent)
+   console.log(fileContent)
+  }
+  reader.readAsDataURL(file);
+  }
+  })
+</script>
+
+</html>
