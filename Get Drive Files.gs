@@ -2,7 +2,7 @@ function GetFiles(){
 
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Your sheet name')
   sheet.getRange(1,1,1,4).setValues([['Name','Link','Owner','DateCreated']]); // these are the headers you want the detials of.
-
+ var content = DriveApp.getFolderById('1KGcKbIXg6txiVIgrxgCMCygcdUOHhxAi').getFiles()
   while (content.hasNext()){
     var file =content.next()
     var name = file.getName()
